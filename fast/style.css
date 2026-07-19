@@ -1,0 +1,64 @@
+:root {
+    --bg: #090c13;
+    --acc: oklch(0.61 0.16 135.33);
+    --acc-d: oklch(0.61 0.09 135.33);
+    --acc-dt: oklch(0.61 0.09 135.33 / 0.3);
+    --acc-m: oklch(0.61 0.04 135.33);
+
+    --acc-t: oklch(0.25 0.16 135.33);
+    --acc-t2: oklch(0.18 0.16 135.33);
+    --grid-size: 210px;
+    --grid-size2: 130px;
+
+    --mobile: "false";
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--acc);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+}
+
+#content {
+    margin: 50px 24px 24px;
+}
+
+.title {
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+.button {
+    position: fixed;
+    background-color: var(--bg);
+    right: 2em;
+    bottom: 2ch;
+    padding: 4px;
+    border: var(--acc-m) dotted 1px;
+    cursor: pointer;
+}
+.button:hover {
+    background-color: var(--acc-t);
+}
+
+a {
+    color: var(--acc-d);
+}
+
+a:hover {
+    color: var(--acc)
+}
+
+
+.galleryImg { 
+    padding: 20px;
+    width: calc(25% - 60px);    
+}
+
+@media (max-width: 768px) {
+    .galleryImg { 
+        padding: 10px 0;
+        width: 100%;    
+    }
+}

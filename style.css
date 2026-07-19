@@ -28,3 +28,51 @@ a {
 a:hover {
     color: var(--acc)
 }
+
+footer {
+    position: relative;
+    bottom: 2em;
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+}
+
+.title {
+    font-size: 34px; 
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.choice {
+    font-size: 30px;
+}
+
+.choice:hover::before {
+    content: ">";
+    position: absolute;
+    transform: translatex(-1.2ch);
+}
+
+
+
+.container {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    flex-direction: column; 
+    height: 100%;
+    padding: 0 10px;
+}
+
+.mobileWarn {
+    padding-top: 30px;
+    color: var(--acc-m);
+    align-items: center;
+    /* word-wrap: break-word; */
+    flex-direction: column;
+    display: none;
+}
+
+.other {
+    padding: 50px 24px 24px;
+}

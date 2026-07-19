@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<head>
+    <title>ervz</title>
+    <link href="style.css" rel="stylesheet">
+
+</head>
+<body data-dehighlight="true" onclick="dehighlight(event)">
+    <audio src="" id="playerAudio"></audio>
+    <div data-dehighlight="true" style="position: fixed;" id="desktop">
+        <div class="img-button" draggable="false" data-svgicon="info.svg" onclick="deskButton('info')">
+        </div>
+        <div class="img-button" draggable="false" data-svgicon="terminal.svg" onclick="deskButton('ppo')">
+        </div>
+        <div class="img-button" draggable="false" data-svgicon="fpga.svg" onclick="deskButton('ppom')">
+        </div>
+        <div class="img-button" draggable="false" data-svgicon="gamepad.svg" onclick="deskButton('flanki')">
+        </div>
+        <div class="img-button" draggable="false" data-svgicon="gallery.svg" onclick="deskButton('photos')">
+        </div>
+    </div>
+    <div class="bottomBarCont">
+        <div class="bottom-bar">
+            <div class="img-button" style="min-width: 42px;" onclick="confirm('Exit?') ? window.location.href = '/' : ''">
+                <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M256,464C141.31,464,48,370.77,48,256.18A207.44,207.44,0,0,1,122.76,96.05l16.9-14,28.17,33.72-16.9,14A163.72,163.72,0,0,0,92,256.18c0,90.39,73.57,163.93,164,163.93s164-73.54,164-163.93a163.38,163.38,0,0,0-59.83-126.36l-17-14,28-33.82,17,14A207.13,207.13,0,0,1,464,256.18C464,370.77,370.69,464,256,464Z"/><rect x="234" y="48" width="44" height="224"/></svg>
+            </div>
+            <div data-dehighlight="true" id="deskBar"></div>
+        </div>
+        <div class="barright">
+                <div class="img-button" data-svgicon="play.svg" id="deskPlayPause" onclick="playPause()"></div>
+                <div class="img-button" data-svgicon="radio.svg" onclick="deskButton('player')"></div>
+                <div class="img-button" style="font-weight: bold;" onclick="langchange(this)">EN</div>
+                <div class="clock">
+                <div style="font-weight: 800; font-size: 22px; justify-content: center; display: flex" id="clock">19:46</div>
+                <div style="font-size: 18px; justify-content: center; display: flex;" id="cal">12.12.1999</div>
+            </div>
+        </div>
+    </div>
+    <script src="../assets/img/icons.js"></script>
+    <script src="../assets/contents.js"></script>
+    <script src="script.js"></script>
+</body>
