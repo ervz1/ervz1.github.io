@@ -6,7 +6,7 @@ const deskBar = document.getElementById("deskBar")
 const playerAudio = document.getElementById('playerAudio')
 let playerSlider
 let player = {
-    Q: ["01. Paktofonika - Na Mocy Paktu.flac", "02. Paktofonika - Priorytety.flac"],
+    Q: [""],
     seeking: false,
     titleOverflow: {x: 0, delta: 0, wait:0}
 }
@@ -298,6 +298,7 @@ function dragWindow(event, id) {
         let newPos = {x: Math.max(0, Math.min(window.innerWidth-30, e.clientX - offset.x)), y: Math.max(0, Math.min(window.innerHeight-85, e.clientY - offset.y))}
         let maxeff = contentWindow.querySelector(".maxeffect")
         if (e.clientY < 50 && !contentWindow.dataset.nomaximize) {
+            console.log(maxeff)
             maxeff.style.left = -Math.max(0 ,e.clientX) + offset.x
             maxeff.style.top = -Math.max(0, e.clientY) - offset.y
             maxeff.style.width = window.innerWidth

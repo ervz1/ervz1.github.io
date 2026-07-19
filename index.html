@@ -1,37 +1,14 @@
+<!DOCTYPE html>
 <head>
     <title>ervz</title>
     <link href="style.css" rel="stylesheet">
-
 </head>
-<body data-dehighlight="true" onclick="dehighlight(event)">
-    <audio src="" id="playerAudio"></audio>
-    <div data-dehighlight="true" style="position: fixed;" id="desktop">
-        <div class="img-button" draggable="false" data-svgicon="info.svg" onclick="deskButton('info')">
-        </div>
-        <div class="img-button" draggable="false" data-svgicon="terminal.svg" onclick="deskButton('ppo')">
-        </div>
-        <div class="img-button" draggable="false" data-svgicon="fpga.svg" onclick="deskButton('ppom')">
-        </div>
-        <div class="img-button" draggable="false" data-svgicon="gamepad.svg" onclick="deskButton('flanki')">
-        </div>
-        <div class="img-button" draggable="false" data-svgicon="gallery.svg" onclick="deskButton('photoes')">
-        </div>
+<body>
+    <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; height: 100%;">
+        <div style="font-size: 40px; margin-bottom: 30px;">Choose:</div>
+        <div style="font-size: 30px;"><a href="/thefun">The fun way</a></div>
+        <div style="font-size: 25px;margin:10px 0;">or</div>
+        <div style="font-size: 30px; margin-bottom: 200px;"><a>The boring way</a></div>
+        <span><a href="/">info</a> | <a href="/">links</a> | <a href="/">assets</a></span>
     </div>
-    <div data-dehighlight="true" class="bottom-bar" id="deskBar"> 
-        <div class="img-button">
-            <img src="assets/img/ico.png" alt="Discord">
-        </div>
-        <div class="barleft">
-            <div class="img-button" data-svgicon="play.svg" id="deskPlayPause" onclick="playPause()"></div>
-            <div class="img-button" data-svgicon="radio.svg" onclick="deskButton('player')"></div>
-            <div class="img-button" style="font-weight: bold;" onclick="langchange(this)">EN</div>
-            <div class="clock">
-                <div style="font-weight: 800; font-size: 22px; justify-content: center; display: flex" id="clock">19:46</div>
-                <div style="font-size: 18px; justify-content: center; display: flex;" id="cal">12.12.1999</div>
-            </div>
-        </div>
-    </div>
-    <script src="script.js"></script>
-    <script src="assets/img/icons.js"></script>
-    <script src="assets/contents.js"></script>
 </body>

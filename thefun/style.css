@@ -1,0 +1,338 @@
+:root {
+    --bg: #090c13;
+    --acc: oklch(0.61 0.16 135.33);
+    --acc-d: oklch(0.61 0.09 135.33);
+    --acc-dt: oklch(0.61 0.09 135.33 / 0.3);
+    --acc-m: oklch(0.61 0.04 135.33);
+    
+
+    --acc-t: oklch(0.25 0.16 135.33);
+    --acc-t2: oklch(0.18 0.16 135.33);
+    --grid-size: 210px;
+    --grid-size2: 130px;
+
+}
+
+h1 {
+    color: var(--acc);
+}
+h2 {
+    color: var(--acc-d);
+}
+h3 {
+    color: var(--acc-m);
+}
+
+::selection {
+    background-color: var(--acc-t);
+}
+
+
+a {
+    color: var(--acc-d);
+}
+
+a:hover {
+    color: var(--acc)
+}
+
+body {
+    scrollbar-width: thin;
+    scrollbar-color: var(--acc) var(--acc-t);
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    min-height: 100vh;
+    background: linear-gradient(var(--acc-t) 2px, transparent 2px), linear-gradient(90deg, var(--acc-t) 2px, transparent 2px), linear-gradient(45deg, transparent calc(50% - 1px), var(--acc-t2), transparent calc(50% + 1px)), linear-gradient(135deg, transparent calc(50% - 1px), var(--acc-t2), transparent calc(50% + 1px));
+    background-color: var(--bg);
+    background-size: var(--grid-size) var(--grid-size), var(--grid-size) var(--grid-size), var(--grid-size2) var(--grid-size2), var(--grid-size2) var(--grid-size2);
+}
+
+::-webkit-scrollbar {
+    width: 10px !important; 
+}
+
+::-webkit-scrollbar-track {
+    background: var(--acc-t) !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--acc-d) !important
+}
+
+:-webkit-scrollbar-thumb:hover {
+    background: var(--acc) 
+}
+span {
+    color: var(--acc);
+}
+
+div {
+    color: var(--acc);
+}
+
+svg {
+    pointer-events: none;
+    height: 100%;
+    width: 100%;
+}
+
+svg, line {
+    fill: var(--acc) !important;
+    stroke: var(--acc) !important;
+}
+
+polyline {
+    stroke: var(--acc) !important;
+}
+
+.window {
+    color: var(--acc);
+    font-size: 18px;
+    position: fixed;
+    width: 600px;
+    height: 400px;
+    border: 2px solid var(--acc);
+    background-color: var(--bg);
+}
+
+.maxeffect {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--acc-dt);
+    z-index: -10;
+    user-select: none;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    transition: all ease 0.17s;
+}
+
+.windowbg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: var(--bg);
+}
+
+.window-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px;
+    border-bottom: 2px solid var(--acc-d);
+    box-sizing: content-box;
+}
+
+.window-title {
+    padding: 0 4px;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    user-select: none;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.window-buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 4px;
+}
+
+.window-buttons > .img-button {
+    width: 26px;
+    height: 26px;
+    margin: 0px;
+}
+
+.windowresizebox {
+    position: absolute;
+    background-color: transparent;
+}
+
+.window[data-max="false"] > .ns {
+    cursor: ns-resize;
+}
+    
+.window[data-max="false"] > .ew {
+    cursor: ew-resize;
+}
+
+.window[data-max="false"] > .nwse {
+    cursor: nwse-resize;
+}
+.window[data-max="false"] > .nesw {
+    cursor: nesw-resize;
+}
+
+.window-content {
+    padding: 4px;
+    height: calc(100% - 46px);
+    overflow: hidden;
+    word-break: break-word;
+    overflow-y: auto;
+}
+
+.img-button:hover {
+    background-color: var(--acc-t);
+    border: 1px dotted var(--acc-d);
+}
+
+.img-button {
+    border: 1px solid transparent;
+    position: relative;
+    width: 62px;
+    height: 62px;
+    z-index: 3;
+    margin: 20px 20px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    user-select: none;
+}
+
+.img-button.minmax > svg {
+    transform: scale(0.87);
+}
+
+.window[data-max="true"] > .window-header > .window-buttons > .img-button.minmax > svg > path {
+    transform: rotate(180deg);
+}
+
+.img-button > img, .img-button > svg {
+    width: 82%;
+    height: 82%;
+    object-fit: cover;
+}
+
+
+.bottom-bar > .img-button{
+    width: 42px;
+    height: 42px;
+    margin: 0px 10px;
+}
+
+.bottom-bar > .img-button[data-highlit="true"] {
+    background-color: var(--acc-t);
+}
+
+.bottom-bar {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-top: 2px solid var(--acc-m);
+    height: 52px;
+    background-color: var(--bg);
+    z-index: 100;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    left: 20%;
+    max-width: 60%;
+    padding-top: 20px;
+}
+
+
+.barleft {
+    width: max-content;
+    display: flex;
+    flex-direction: row;
+    margin: 0px 12px;
+    position: absolute;
+    right: 0px;
+    align-items: center;
+    justify-items: end;
+}
+
+.clock {
+    margin: 0 12px;
+}
+
+.barleft > .img-button {
+    margin: 0 5px;
+    height: 28px;
+    width: 28px;
+}
+
+.player {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.playerButtons {
+    display: flex;
+    height: 50px;
+    justify-content: space-between;
+}
+
+#playerTitle {
+    max-height: 1em;
+    overflow: hidden;
+    position: relative;
+    width: max-content;
+    font-size: 22px;
+    margin: 4px 4px;
+    margin-bottom: 8px;
+}
+
+#playerSlider {
+    -webkit-appearance: none; 
+	appearance: none;
+	width: 95%;
+	height: 10px;
+    margin: 6px 0px;
+	background: var(--acc-t);
+	outline: none;
+}
+
+#playerSlider::-moz-range-thumb {
+    background-color: var(--acc);
+    outline: none;
+    border: none;
+    border-radius: 0;
+    height: 18px;
+    width: 10px;
+}
+
+#playerSlider::-moz-range-progress {
+    background-color: var(--acc);
+    height: 100%;
+}
+
+#playerSlider::-webkit-slider-runnable-track {
+    height: 10px;
+    background: transparent;
+    border: none;
+}
+
+#playerSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: var(--acc);
+    border: none;
+    border-radius: 0;
+    height: 18px;
+    width: 10px;
+    margin-top: -4px; 
+}
+
+.playerButtons > .img-button {
+    max-height: 40px;
+    width: 40px;
+    margin: 4px 10px;
+}
+
+.playerTime {
+    align-content: center;
+    margin: 0px 10px;
+}

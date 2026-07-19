@@ -3,10 +3,20 @@ const winContents = {
         "title": "info",
         "icon": "info.svg",
         "content": {
-            "en": "",
-            "pl": "",
-            "ru": ""
-        } 
+            "en": `Welcome to my website! Here are some of my projects:<br><br>
+<- <a href='https://passwordpassword.online' target='_blank'>passwordpassword.online</a> - A webapp/forum/imageboard created by a friend and me. Inspired by <a href="https://en.wikipedia.org/wiki/Milk_Outside_a_Bag_of_Milk_Outside_a_Bag_of_Milk" target="_blank">MOABOM</a>, <a href="https://en.wikipedia.org/wiki/Serial_Experiments_Lain" target="_blank">SEL</a>, and the <a href="https://laingame.net/about.html" target="_blank">SELPS1</a> game.<br><br>
+<- <a>ppmonitor</a> - An ESP32 portable IoT device capable of displaying metrics from passwordpassword.online.<br><br>
+<- A 2D <a href="https://youtu.be/AiCPtLuKr0Y?si=323hNd3_RCziiZZR" target="_blank">flanki</a> game made in C++ using the SFML library.<br><br>
+<- Selected photography: Street photography, architecture, b&w, brutalism.<br><br>
+Feel free to explore this website to find out more!<br><br>
+Click the "<b>EN</b>" icon in the bottom-right corner to change the content language.`,
+            "pl": "no i co",
+            "ru": "и че"
+        },
+        "properties": {
+            "size": {x:600, y:600},
+            "pos": {x: 100, y:55}
+        }
     },
     "ppo": {
         "title": "passwordpassword",
