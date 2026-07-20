@@ -105,6 +105,17 @@ function preparePlayer() {
     document.addEventListener("mouseup", () => {
         player.seeking = false
     })
+    
+    deskButton("settings")
+    let settings = document.getElementById("settings")
+    settings.querySelector(".maxeffect").style.display = "none"
+    minimize("settings")
+    settings.querySelector(".maxeffect").style.display = "block"
+    let volumeSlider = settings.querySelector("#volumeSlider")
+    volumeSlider.value = playerAudio.volume
+    volumeSlider.addEventListener("input", () => {
+        playerAudio.volume = volumeSlider.value
+    }) 
 }
 
 function updatePlayerTitle() {
@@ -453,6 +464,49 @@ function openImg(img) {
         newWindow(img, img, 'gallery.svg', `<img class=fullImgContent src=/assets/photos/${img}>`)
     }
 }
+
+function changeColor(el, c='main') {
+    switch (c) {
+        case "main":
+            document.documentElement.style.setProperty("--acc", `oklch(from ${el.value} l c h)`)
+            document.documentElement.style.setProperty("--acc-d", `oklch(from ${el.value} l calc(c - 0.07) h)`)
+            document.documentElement.style.setProperty("--acc-dt", `oklch(from ${el.value} l calc(c - 0.07) h / 0.3)`)
+            document.documentElement.style.setProperty("--acc-t", `oklch(from ${el.value} calc(l - 0.36) c h)`)
+            document.documentElement.style.setProperty("--acc-t2", `oklch(from ${el.value} calc(l - 0.43) calc(c - 0.09) h)`)
+            break
+        case "bg":
+            document.documentElement.style.setProperty("--bg", el.value)
+            break
+        case "reset":
+            document.documentElement.style.setProperty("--acc", `oklch(0.61 0.16 135.33)`)
+            document.documentElement.style.setProperty("--acc-d", `oklch(0.61 0.09 135.33)`)
+            document.documentElement.style.setProperty("--acc-dt", `oklch(0.61 0.09 135.33 / 0.3)`)
+            document.documentElement.style.setProperty("--acc-t", `oklch(0.25 0.16 135.33)`)
+            document.documentElement.style.setProperty("--acc-t2", `oklch(0.18 0.16 135.33)`)
+            document.documentElement.style.setProperty("--bg", '#090c13')
+            document.getElementById("bgColPick").value = '#090c13'
+            document.getElementById('accColPick').value = "oklch(0.61 0.16 135.33)"
+            break
+    }
+}
+
+function setGrid(el, g="") {
+    switch (g) {
+        case "back":
+            document.documentElement.style.setProperty("--grid-size2", `${el.value}px`)
+            break
+        case "front":
+            document.documentElement.style.setProperty("--grid-size", `${el.value}px`)
+            break
+        case "reset":
+            document.documentElement.style.setProperty("--grid-size", `210px`)
+            document.documentElement.style.setProperty("--grid-size2", `130px`)
+            document.getElementById("g1").value = "210"
+            document.getElementById("g2").value = "130"
+            break
+    }
+}
+
 
 deskButton('info')
 preparePlayer()

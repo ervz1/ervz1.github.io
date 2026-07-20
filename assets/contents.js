@@ -206,5 +206,40 @@ Zespołowy projekt akademicki zrealizowany na AGH. Stworzyliśmy kompletną, zr�
             "nodeskbutton": true,
             "preventclose": true
         }
+    },
+    "settings": {
+        "title": "settings",
+        "icon": "settings.svg",
+        "content": {
+            "nolang": ` 
+            <div class='settings' id="settingsDiv" style="height: 100%; display: flex; justify-content: space-evenly;">
+                <div class="settCont">
+                    <input id="volumeSlider" type="range" max="1" value="0" step="any">
+                    <label class="settLabel">Volume</label>
+                </div>
+                <div class="settCont" style="align-items: normal; justify-content: space-evenly;">
+                    <div>
+                        <div class="lineSett"><label class="settLabel" >Accent color: </label><input style="cursor: pointer" id="accColPick" value="${window.getComputedStyle(document.body).getPropertyValue('--acc')}" type="color" oninput="changeColor(this)" class="colorInput"/></div>
+                        <div class="lineSett"><label class="settLabel" >Background color: </label><input style="cursor: pointer" id="bgColPick" value="${window.getComputedStyle(document.body).getPropertyValue('--bg')}" type="color" oninput="changeColor(this, 'bg')" class="colorInput"/></div>
+                        <div class="lineSett" style="cursor: pointer" onclick="changeColor(null, 'reset')"><u>Reset Colors</u></div>
+                    </div>
+                    <div>
+                        <label>Front Grid:</label>
+                        <div class="lineSett"><input class="gridSlider" type="range" step="5" max="500" id="g1" min="50" oninput="setGrid(this, 'front')"  value="${window.getComputedStyle(document.body).getPropertyValue('--grid-size').slice(0, -2)}"></div>
+                        <label>Back Grid:</label>
+                        <div class="lineSett"><input class="gridSlider" type="range" step="5" max="500" id="g2" min="50" oninput="setGrid(this, 'back')" value="${window.getComputedStyle(document.body).getPropertyValue('--grid-size2').slice(0, -2)}"></div>
+                        <div class="lineSett" style="cursor: pointer" onclick="setGrid(null, 'reset')"><u>Reset Grid Size</u></div>
+                    </div>
+                </div>
+            </div>
+            `
+        },
+        "properties": {
+            "size": {x: 350, y: 330},
+            "noresize": true,
+            "nomaximize": true,
+            "nodeskbutton": true,
+            "preventclose": true
+        }
     }
 }
