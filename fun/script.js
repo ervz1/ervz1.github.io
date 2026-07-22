@@ -466,6 +466,7 @@ function openImg(img) {
 }
 
 function changeColor(el, c='main') {
+    let svg
     switch (c) {
         case "main":
             document.documentElement.style.setProperty("--acc", `oklch(from ${el.value} l c h)`)
@@ -473,6 +474,8 @@ function changeColor(el, c='main') {
             document.documentElement.style.setProperty("--acc-dt", `oklch(from ${el.value} l calc(c - 0.07) h / 0.3)`)
             document.documentElement.style.setProperty("--acc-t", `oklch(from ${el.value} calc(l - 0.36) c h)`)
             document.documentElement.style.setProperty("--acc-t2", `oklch(from ${el.value} calc(l - 0.43) calc(c - 0.09) h)`)
+            svg = `<svg fill="${el.value}" width="800px" height="800px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><polygon points="161.98 397.63 0 256 161.98 114.37 189.63 145.98 64 256 189.63 366.02 161.98 397.63"/><polygon points="350.02 397.63 322.37 366.02 448 256 322.37 145.98 350.02 114.37 512 256 350.02 397.63"/><polygon points="222.15 442 182 430.08 289.85 70 330 81.92 222.15 442"/></svg>`
+            document.getElementById("favicon").href = `data:image/svg+xml,${encodeURIComponent(svg)}`
             break
         case "bg":
             document.documentElement.style.setProperty("--bg", el.value)
@@ -486,6 +489,8 @@ function changeColor(el, c='main') {
             document.documentElement.style.setProperty("--bg", '#090c13')
             document.getElementById("bgColPick").value = '#090c13'
             document.getElementById('accColPick').value = "oklch(0.61 0.16 135.33)"
+            svg = `<svg fill="oklch(0.61 0.16 135.33)" width="800px" height="800px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><polygon points="161.98 397.63 0 256 161.98 114.37 189.63 145.98 64 256 189.63 366.02 161.98 397.63"/><polygon points="350.02 397.63 322.37 366.02 448 256 322.37 145.98 350.02 114.37 512 256 350.02 397.63"/><polygon points="222.15 442 182 430.08 289.85 70 330 81.92 222.15 442"/></svg>`
+            document.getElementById("favicon").href = `data:image/svg+xml,${encodeURIComponent(svg)}`
             break
     }
 }
@@ -506,7 +511,6 @@ function setGrid(el, g="") {
             break
     }
 }
-
 
 deskButton('info')
 preparePlayer()
